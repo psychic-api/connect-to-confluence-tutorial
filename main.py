@@ -12,7 +12,7 @@ try:
     # Create a document loader for Zendesk. We can also load from other connectors e.g. ConnectorId.gdrive
     psychic = Psychic(secret_key=os.getenv("PSYCHIC_SECRET_KEY"))
     #replace account_id with the value you set while creating a new connection at https://dashboard.psychic.dev/playground
-    raw_docs = psychic.get_documents(connector_id=ConnectorId.confluence, account_id="test", chunked=True)
+    raw_docs = psychic.get_documents(connector_id=ConnectorId.confluence, account_id="account_id", chunked=True)
     documents = [
         Document(page_content=doc["content"], metadata={"title": doc["title"], "source": doc["uri"]})
         for doc in raw_docs
